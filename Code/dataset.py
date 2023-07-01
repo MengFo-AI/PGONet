@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 from tqdm import tqdm
-from .utils import CFG
+from utils import CFG
 from torch.utils.data import Dataset 
 
 
