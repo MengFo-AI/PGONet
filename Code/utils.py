@@ -63,7 +63,7 @@ class CFG:
     num_workers:int = 2
     max_grad_norm:float = 100.0 #5.0 #3.0 # 100
 
-    n_epochs:int = 1#04#5 #15 #30 #20
+    n_epochs:int = 100#04#5 #15 #30 #20
     batch_size:int = 128#128 #256 #32
     lr:float = 1e-5 #0.001 #8e-3 #lr=8e-4
     
