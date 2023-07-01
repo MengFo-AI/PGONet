@@ -6,9 +6,9 @@ import pandas as pd
 
 import time 
 from tqdm.auto import tqdm
-from .model import PGONet
-from .utils import CFG, val_epoch, train_one_epoch
-from .dataset import ProteinDataset
+from model import PGONet
+from utils import CFG, val_epoch, train_one_epoch
+from dataset import ProteinDataset
 from torch.utils.data import random_split
 from torch.utils.data import DataLoader
 
