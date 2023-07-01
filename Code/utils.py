@@ -8,7 +8,7 @@ import numpy as np
 
 
 from tqdm.auto import tqdm
-from .metrics import *
+from metrics import *
 from torchmetrics.classification import MultilabelF1Score
 
 
