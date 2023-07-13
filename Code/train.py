@@ -104,3 +104,5 @@ if __name__ == '__main__' :
     CFG.train_size = parser.train_size
     CFG.weight_decay = parser.weight_decay
     CFG.conv_input_dim = parser.conv_input_dim
+    # Start training......
+    trainer(CFG=CFG)
