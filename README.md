@@ -2,39 +2,17 @@
 PGONet: protein function prediction from sequence
 
 # Use
-- 修改`utils.py`中的CFG
+- about training argument `train.py`
 ```python
-# change cfg class
-
-class CFG:
-    train_ids_path:str = '/kaggle/input/t5embeds/train_ids.npy'
-    train_embeds_path:str = '/kaggle/input/cafa5-protein-feature/train_embeds.npy'
-    df_labels_path:str = '/kaggle/input/cafa5-protein-feature/train_targets(T5)_top500.pkl'
-    
-    df_labels = pd.read_pickle(df_labels_path)
-    print(f'[+] Verify -------->>>>>> {df_labels.labels_vect[0].shape}')
-    
-    num_labels:int = int(df_labels['labels_vect'][0].shape[0]) 
-    print(f'Num of the labels: {num_labels}')
-    
-    
-    train_size:float=0.9#0.9
-    apex:bool = False # use amp maybe grad infinity
-    wandb:bool = False
-        
-    metrics = 'f1' # m = matthews  / f1(torch metrics的) / f1_torch(自己写的)
-    model_version = 'v3_pca_attention'
-    conv_input_dim:int = 512 #512 #1024(T5原始数据) # train data X[0] shape 
-        
-    weight_decay:float = 0.01
-    num_workers:int = 2
-    max_grad_norm:float = 100.0 #5.0 #3.0 # 100
-
-    n_epochs:int = 100#04#5 #15 #30 #20
-    batch_size:int = 128#128 #256 #32
-    lr:float = 1e-5 #0.001 #8e-3 #lr=8e-4
-    
-    device = device
+parser.add_argument("train_size", type = float, default=0.9, help="train / val Dataset random split rate")
+    parser.add_argument("wandb", type = bool, default=False, help="Wandb api (default is Flase, if you need please keep it on.)")
+    parser.add_argument("weight_decay", type = float, default=0.01, help="weight decay (float)")
+    parser.add_argument("num_workers", type = int, default=2)
+    parser.add_argument("max_grad_norm", type = float, default=100.0, help = "Grad clip")
+    parser.add_argument("n_epochs", type = int, default=100, help = "Model traing epochs")
+    parser.add_argument("batch_size", type = int, default=128, help = "Batch size for Protein feature dataset")
+    parser.add_argument("lr", type = float, default=1e-5, help = "Training learning rate (default : 1e-5)")
+    parser.add_argument("conv_input_dim", type = int, default= 512, help="Model input data dim") 
 ```
 
 - Run
