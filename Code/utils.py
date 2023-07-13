@@ -204,3 +204,4 @@ def train_one_epoch(model, loader, epoch, cfg=CFG):
     print(f"Epoch[{epoch}] [+] Train Loss: {(loss_sum/len(loader)):.04f}| Avg Loss: {(loss_sum/count_loss):.04f}, Score ({cfg.metrics}): {score_}, Grad: {(grad_norm):.04f}")
     
     return model, score_, scheduler
+
