@@ -19,3 +19,8 @@ parser.add_argument("train_size", type = float, default=0.9, help="train / val D
 ```
 >>> python train.py
 ```
+
+# Reference
+
+- [Fast and accurate protein function prediction from sequence through pretrained language model and homology-based label diffusion](https://github.com/biomed-AI/SPROF-GO/)
+
