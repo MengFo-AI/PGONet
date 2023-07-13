@@ -95,14 +95,16 @@ if __name__ == '__main__' :
     parser.add_argument("lr", type = float, default=1e-5, help = "Training learning rate (default : 1e-5)")
     parser.add_argument("conv_input_dim", type = int, default= 512, help="Model input data dim") 
 
-    CFG.batch_size = parser.batch_size
-    CFG.lr = parser.lr 
-    CFG.max_grad_norm = parser.max_grad_norm
-    CFG.n_epochs = parser.n_epochs
-    CFG.num_workers = parser.num_workers
-    CFG.wandb = parser.wandb
-    CFG.train_size = parser.train_size
-    CFG.weight_decay = parser.weight_decay
-    CFG.conv_input_dim = parser.conv_input_dim
+    args = parser.parse_args()
+    
+    CFG.batch_size = args.batch_size
+    CFG.lr = args.lr 
+    CFG.max_grad_norm = args.max_grad_norm
+    CFG.n_epochs = args.n_epochs
+    CFG.num_workers = args.num_workers
+    CFG.wandb = args.wandb
+    CFG.train_size = args.train_size
+    CFG.weight_decay = args.weight_decay
+    CFG.conv_input_dim = args.conv_input_dim
     # Start training......
     trainer(CFG=CFG)
